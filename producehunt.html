@@ -1,0 +1,135 @@
+<head>
+  <title>Produce Hunt</title>
+</head>
+
+<body>
+  {{> produce}}
+</body>
+
+<template name="produce">
+	<div id='main'>
+		<div id='headerContainer'>
+			<div id='header'>
+				<div class='left'>
+					<img id='logo' src='/logo.svg'/>
+					<div id='title'>
+						<h1>Produce Hunt</h1>
+						<p>The freshest produce, every day</p>
+					</div>
+				</div>
+				<div class='right'>
+					<a class='submitLink'><span class='fa fa-plus'></span> Submit produce</a>
+				</div>
+			</div>
+		</div>
+		<ol id='produceList'>
+			{{#each produce}}
+				{{> produceItem }}
+			{{/each}}
+		</ol>
+	</div>
+	{{#if showSidebar}}
+	<div id='sidebarContainer'>
+		<div id='sidebar'>
+			{{#if showSubmit}}
+				{{>submit}}
+			{{ else }}
+				{{>comments}}
+			{{/if}}
+		</div>
+	</div>
+	{{/if}}
+</template>
+
+<template name="produceItem">
+	<li class='produceItem'>
+		<div class='pointsContainer'>
+			<div class='pointsControl {{pointsControlClass}}'>
+				<div class='button fa fa-sort-up'></div>
+				<div class='points'>{{ points }}</div>
+			</div>
+		</div>
+		<div>
+			<h2>
+				{{ name }}
+				{{#if hasFarmerComments}}
+					<span class='farmer' title="The farmer who grew this produce has joined the comments">F</span>
+				{{/if}}
+			</h2>
+			<div class='tagline'>{{ tagline }}</div>
+		</div>
+		<div class='right'>
+			<img style="background-image: url({{ imageUrl }})" />
+		</div>
+		<div class='right commentsCount'>
+			{{ commentsCount }}
+			<span class='fa fa-comment'></span>
+		</div>
+	</li>
+</template>
+
+<template name="submit">
+	<form class='submit'>
+		<h3>Submit some produce</h3>
+		<div>
+			<label for='name'>Name</label>
+			<input id='name' name='name'/>
+		</div>
+		<div>
+			<label for='tagline'>Tagline</label>
+			<input id='tagline' name='tagline'/>
+		</div>
+		<div>
+			<label for='image'>Upload an image</label>
+			<input id='image' type='file' accept='image/*'/>
+		</div>
+		<input type='submit'/>
+	</form>
+</template>
+
+<template name="comments">
+	<div id='produceDetail'>
+		{{#with produce}}
+		<h1>{{ name }}</h1>
+		<h2>{{ tagline }}</h2>
+		{{/with}}
+	</div>
+		
+	<ul id='comments'>
+		{{#each comments}}
+		<li>
+			<div class='byline'>
+				<div class='name'>
+					{{ name }}
+					{{#if farmer}}
+						<span class='farmer' title="This is the farmer who grew this produce">F</span>
+					{{/if}}
+				</div>
+				<span class='title'>{{ title }}</span>
+			</div>
+			<p>
+				{{ comment }}
+			</p>
+		</li>
+		{{/each}}
+		
+		<li>
+			<form id='postComment'>
+				<div>
+					<label for='posterName'>Your name</label>
+					<input id='posterName' name='name'/>
+				</div>
+				<div>
+					<label for='posterTitle'>Your title</label>
+					<input id='posterTitle' name='title'/>
+				</div>
+				<div>
+					<label for='comment'>Your comment</label>
+					<textarea id='comment' name='comment'></textarea>
+				</div>
+				<input type='submit' value='Post comment'/>
+			</form>
+		</li>
+	</ul>
+</template>
+

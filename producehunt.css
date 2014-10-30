@@ -1,0 +1,250 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css);
+
+/* root */
+
+body {
+	font-family: "Montserrat", sans-serif;
+	margin: 0;
+}
+
+#main {
+	
+}
+
+h1, a {
+	color: #DA552F;
+}
+
+#produceList, #header {
+	margin: auto;
+	width: 90%;
+	max-width: 900px;
+}
+
+a {
+	cursor: pointer;
+}
+
+textarea, input[type=text], input:not([type]) {
+	border-radius: 4px;
+	border: 0px solid rgba(128,128,128,0.4);
+	box-shadow: inset 0px 0px 1px;
+	padding: 4px;
+	outline: none;
+}
+
+textarea {
+	width: 100%;
+	height: 5em;
+	background-color: #eee;
+}
+
+/* header */
+
+#headerContainer {
+	box-shadow: 0px 0px 3px gray;
+}
+
+#header {
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
+	display: table;
+}
+
+#header > * {
+	vertical-align: middle;
+	display: table-cell;
+}
+
+#header > * > * {
+	vertical-align: middle;
+}
+
+#header .right {
+	text-align: right;
+}
+
+#logo {
+	height: 3em;
+	margin-right: 1em;
+	position: relative;
+	top: -3px;
+}
+
+#title {
+	display: inline-block;
+}
+
+#title h1 {
+	font-size: 20px;
+	margin: 0;
+	margin-bottom: 0.2em;
+}
+
+#title p {
+	font-size: 18px;
+	margin: 0;
+	color: gray;
+}
+
+/* sidebar */
+#sidebarContainer {
+	position: fixed;
+	background-color: rgba(255,255,255,0.7);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+#sidebar {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	max-width: 400px;
+	box-shadow: 0px 0px 10px gray;
+	box-sizing: border-box;
+	padding: 20px;
+	background-color: white;
+	overflow-y: auto;
+}
+
+/* form */
+form label {
+	display: block;
+}
+form div {
+	margin-bottom: 1em;
+}
+
+/* produce list */
+#produceList {
+	padding: 0;
+}
+#produceList h2 {
+	margin: 0;
+	font-size: 20px;
+	margin-bottom: 4px;
+}
+#produceList .tagline {
+	color: gray;
+	font-size: 17px;
+}
+#produceList > li {
+	list-style-type: none;
+	display: table;
+	width: 100%;
+	padding: 0.5em;
+	margin: 0.5em;
+	border-radius: 4px;
+	cursor: default;
+}
+#produceList > li > div {
+	display: table-cell;
+	vertical-align: middle;
+}
+#produceList > li > div.right {
+	text-align: right;
+}
+#produceList img {
+	height: 3em;
+	width: 3em;
+	background-color: #ddd;
+	background-size: cover;
+	background-position: center;
+	border-radius: 100%;
+}
+#produceList > li:hover {
+	background-color: rgb(252, 245, 226);
+}
+.pointsContainer {
+	width: 32px;
+	padding-right: 1em;
+}
+.commentsCount {
+	width: 4em;
+	color: gray;
+}
+.commentsCount .fa {
+	margin-left: 0.5em;
+}
+/* points */
+.pointsControl {
+	width: 100%;
+	position: relative;
+	padding-top: 24px;
+	padding-bottom: 6px;
+	text-align: center;
+	display: inline-block;
+	background-color: #e2e2e2;
+	box-shadow: 0 1px 0px #aaa;
+	border-radius: 5px;
+	cursor: default;
+}
+.pointsControl .button {
+	font-size: 2em;
+	position: absolute;
+	top: 5px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+.pointsControl:hover .button {
+	color: #DA552F;
+}
+.pointsControl.upvoted {
+	color: #DA552F;
+}
+
+/* comments */
+#produceDetail h1 {
+	color: black;
+	margin-bottom: 0;
+}
+#produceDetail h2 {
+	color: gray;
+	margin-top: 0.3em;
+}
+#comments {
+	padding: 0;
+}
+#comments > li {
+	list-style-type: none;
+	border-top: 2px solid #eee;
+	margin-top: 1em;
+	padding-top: 1em;
+}
+#comments .name {
+	color: #DA552F;
+	font-weight: bold;
+}
+#comments form input[type=submit] {
+	border: none;
+	appearance: none;
+	background-color: #DA552F;
+	color: white;
+	padding: 8px;
+	font-size: large;
+	font-family: "Montserrat", sans-serif;
+	outline: none;
+}
+#comments .title {
+	color: gray;
+	font-size: small;
+}
+
+/* farmer badges */
+.farmer {
+	background-color: #51AC7D;
+	padding: 0px 4px;
+	border-radius: 100%;
+	color: white;
+	font-size: small;
+	cursor: help;
+}
+.produceItem .farmer {
+	position: relative;
+	top: -2px;
+}
